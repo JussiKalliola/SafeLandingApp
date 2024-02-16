@@ -193,7 +193,8 @@ final class ARReceiver: NSObject, ARSessionDelegate, ARSCNViewDelegate, CLLocati
         
         self.currentARPointCloud = frame.rawFeaturePoints?.points
             
-
+        
+        // Publish data to rosbridge
 //        if arProvider.websocket != nil{
 //            let translation = frame.camera.transform.columns.3
 //            let quaternion = simd_quaternion(frame.camera.transform)

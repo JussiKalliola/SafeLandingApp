@@ -32,10 +32,60 @@ struct SideMenuView: View {
     @Binding var terCompRough: Double
     @Binding var terCompRel: Double
     
+    @Binding var useRos: Bool
+    @Binding var rosIpAddress: String
+    
+    @State var tempRosIpAddress: String = ""
     
     var body: some View {
         ScrollView(.vertical) {
             VStack {
+                // ROS parameters.
+                VStack(alignment: .leading) {
+                    Text("ROS").font(.title2).padding([.vertical], 10)
+                    Text("ROS Starts to send updates to the ROS network when scan is started. ROS Topics:").font(.footnote)
+                    Text("/iphone/pose").padding(.leading, 5).padding(.top, 1).font(.system(size: 11))
+                    Text("/iphone/rgb/image_raw").padding(.leading, 5).font(.system(size: 11))
+                    Text("/iphone/depth/image_raw").padding(.leading, 5).font(.system(size: 11))
+                    Text("/iphone/confidence/image_raw").padding(.leading, 5).padding(.bottom, 3).font(.system(size: 11))
+                    Text("[More info in github.](https://github.com/JussiKalliola/SafeLandingApp)").font(.footnote)
+                    Toggle("Enable ROS:", isOn: $useRos).disabled($rosIpAddress.wrappedValue != "")
+                    
+                    HStack {
+                        TextField(
+                            "URL",
+                            text: $tempRosIpAddress,
+                            prompt: Text("ws://0.0.0.0:9090").foregroundColor($useRos.wrappedValue ? .white : .gray)
+                        ).textFieldStyle(.roundedBorder).disabled($useRos.wrappedValue && $rosIpAddress.wrappedValue != "")
+                            .autocorrectionDisabled()
+                            .border($useRos.wrappedValue ? .white : .gray)
+                        
+                        if $rosIpAddress.wrappedValue == "" {
+                            Button(action: {
+                                // Here we should do some checking if its an actual IP, TODO
+                                $rosIpAddress.wrappedValue = $tempRosIpAddress.wrappedValue
+                                
+                            }) {
+                                Text("Save").font(.system(size: 11)).foregroundColor($useRos.wrappedValue ? .white : .gray)
+                                
+                            }.padding([.horizontal], 20).padding([.vertical], 10).buttonBorderShape(.roundedRectangle(radius: 10)).border($useRos.wrappedValue ? .white : .gray)
+                        } else {
+                            Button(action: {
+                                // Here we should do some checking if its an actual IP, TODO
+                                $rosIpAddress.wrappedValue = ""
+                                $tempRosIpAddress.wrappedValue = ""
+                                
+                            }) {
+                                Text("Delete").font(.system(size: 11)).foregroundColor(.white)
+                                
+                            }.padding([.horizontal], 20).padding([.vertical], 10).buttonBorderShape(.roundedRectangle(radius: 10)).border(.red).background(.red)
+                        }
+                         //.disabled(pointCloudProcessState < 1)
+                    }.disabled(!$useRos.wrappedValue)
+                }.padding([.top], 20)
+                
+                Divider().foregroundColor(.gray).padding([.top, .bottom], 10)
+                
                 VStack(alignment: .leading) {
                     Text("Rendering").font(.title2).padding([.vertical], 10)
                     Text("Pointcloud Color")
@@ -69,7 +119,7 @@ struct SideMenuView: View {
                         Text("\( String(format: "%g", pointSize)) size")
                             .foregroundColor(.white).padding([.vertical], 0).frame(width: 120, alignment: .trailing)
                     }
-                }.padding([.top], 20)
+                }
                 
                 Divider().foregroundColor(.gray).padding([.top, .bottom], 10)
                 

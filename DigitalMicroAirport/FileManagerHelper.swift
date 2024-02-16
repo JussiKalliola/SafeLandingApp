@@ -18,8 +18,10 @@ class FileManagerHelper {
     var fileCounter: Int = 0
     let fileManager: FileManager = FileManager.default
     var suffix: String = ""
+    var useRos: Bool = false
     
-    init(suffix: String = "test") {
+    init(suffix: String = "test", useRos: Bool = false) {
+        self.useRos=useRos
         self.suffix=suffix
         createDirectory()
     }
@@ -608,20 +610,22 @@ class FileManagerHelper {
         }
         
         stream.close()
-        
-        //do {
-        //    let imageData:NSData = try NSData(bytes: srcPtr, length: capacity)
-        //
-        //    let strBase64:String = imageData.base64EncodedString(options: .lineLength64Characters)
-        //
-        //    arProvider.websocket?.publish(json: ["op": "publish", "topic": "/iphone/confidence/image_raw",
-        //                                         "msg": ["height": height, "width": width, "encoding": "32FC1", "is_bigendian": 0, "step": rowBytes, "data": strBase64]])
-        
+        if(self.useRos && arProvider.websocket!.connected) {
+            print("Publish raw confidence image to ROS")
+            do {
+                let imageData:NSData = try NSData(bytes: srcPtr, length: capacity)
             
-            //print(strBase64)
-        //} catch let error as NSError {
-        //    fatalError("Error: \(error.localizedDescription)")
-        //}
+                let strBase64:String = imageData.base64EncodedString(options: .lineLength64Characters)
+            
+                arProvider.websocket?.publish(json: ["op": "publish", "topic": "/iphone/confidence/image_raw",
+                                                     "msg": ["height": height, "width": width, "encoding": "32FC1", "is_bigendian": 0, "step": rowBytes, "data": strBase64]])
+            
+                
+                //print(strBase64)
+            } catch let error as NSError {
+                fatalError("Error: \(error.localizedDescription)")
+            }
+        }
         
         return s  + ".bin"
     }
@@ -661,20 +665,21 @@ class FileManagerHelper {
 
         stream.close()
         print("Depth image saved.")
-        
-//        do {
-//            let imageData:NSData = try NSData(bytes: srcPtr, length: capacity)
-//
-//            let strBase64:String = imageData.base64EncodedString(options: .lineLength64Characters)
-//
-//            arProvider.websocket?.publish(json: ["op": "publish", "topic": "/iphone/depth/image_raw", "msg": ["height": height, "width": width, "encoding": "32FC1", "is_bigendian": 0, "step": rowBytes, "data": strBase64]])
-//
-//
-//            //print(strBase64)
-//        } catch let error as NSError {
-//            fatalError("Error: \(error.localizedDescription)")
-//        }
-        
+        if(useRos && arProvider.websocket!.connected){
+            print("Publish raw depth image to ROS")
+            do {
+                let imageData:NSData = try NSData(bytes: srcPtr, length: capacity)
+
+                let strBase64:String = imageData.base64EncodedString(options: .lineLength64Characters)
+
+                arProvider.websocket?.publish(json: ["op": "publish", "topic": "/iphone/depth/image_raw", "msg": ["height": height, "width": width, "encoding": "32FC1", "is_bigendian": 0, "step": rowBytes, "data": strBase64]])
+
+
+                //print(strBase64)
+            } catch let error as NSError {
+                fatalError("Error: \(error.localizedDescription)")
+            }
+        }
         
         //["op": "publish", "topic": "/test_image/compressed", "msg": ["format": "jpeg", "data": strBase64]])
         
@@ -726,28 +731,30 @@ class FileManagerHelper {
         
         let fileURL = URL(fileURLWithPath: s, relativeTo: self.path).appendingPathExtension("bin")
         
-        
-//        do {
-//            try? data.write(to: fileURL)
-//            let imageData:NSData = try NSData(data: data)//NSData(bytes: src, length: imageByteCount)
-//        
-//            let strBase64:String = imageData.base64EncodedString(options: .lineLength64Characters)
-//
-//            arProvider.websocket?.publish(json: ["op": "publish",
-//                                                 "topic": "/iphone/rgb/image_raw",
-//                                                 "msg": ["height": height,
-//                                                         "width": width,
-//                                                         "encoding": "bgra8",
-//                                                         "is_bigendian": 0,
-//                                                         "step": bytesPerRow,
-//                                                         "data": strBase64]
-//                                                ])
-//
-//
-//            //print(strBase64)
-//        } catch let error as NSError {
-//            fatalError("Error: \(error.localizedDescription)")
-//        }
+        if(useRos && arProvider.websocket!.connected) {
+            print("Publish raw image with ROS")
+            do {
+                try? data.write(to: fileURL)
+                let imageData:NSData = try NSData(data: data)//NSData(bytes: src, length: imageByteCount)
+            
+                let strBase64:String = imageData.base64EncodedString(options: .lineLength64Characters)
+
+                arProvider.websocket?.publish(json: ["op": "publish",
+                                                     "topic": "/iphone/rgb/image_raw",
+                                                     "msg": ["height": height,
+                                                             "width": width,
+                                                             "encoding": "bgra8",
+                                                             "is_bigendian": 0,
+                                                             "step": bytesPerRow,
+                                                             "data": strBase64]
+                                                    ])
+
+
+                //print(strBase64)
+            } catch let error as NSError {
+                fatalError("Error: \(error.localizedDescription)")
+            }
+        }
         
         return s + ".bin"
     }

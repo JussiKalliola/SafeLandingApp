@@ -97,6 +97,9 @@ final class ARProvider: ARDataReceiver, ObservableObject {
     var savedFrames: [SavedFrame] = []
     var savedARPointclouds: [(vector_float3, vector_float3)] = []
     
+    var useRos: Bool = false
+    var rosIpAddress:String = ""
+    
     var websocket: WebSocket?
     
     // Create an empty texture.
@@ -164,7 +167,7 @@ final class ARProvider: ARDataReceiver, ObservableObject {
                                                         usage: [.shaderRead, .shaderWrite],
                                                         pixelFormat: .rgba8Unorm)
             
-            fileManager = FileManagerHelper(suffix: "test")
+            fileManager = FileManagerHelper(suffix: "test", useRos: self.useRos)
             
             
             let pointUniformBufferSize = MemoryLayout<CameraIntrinsics>.stride
@@ -186,8 +189,7 @@ final class ARProvider: ARDataReceiver, ObservableObject {
             }
             
             queue.qualityOfService = .utility
-            
-            self.websocket = WebSocket()
+            //self.websocket = WebSocket()
                         
             // Set the delegate for ARKit callbacks.
             arReceiver.delegate = self
@@ -357,14 +359,15 @@ final class ARProvider: ARDataReceiver, ObservableObject {
         
         updateWorldMeshAnchors(lastArData!.arAnchors)
         
-        if (arData.frameId % 5 == 0 && arReceiver.currentARPointCloud != nil) {
-            let currentPointCentroid = calculatePointcloudMean(points: arReceiver.currentARPointCloud!)
-            let camPosition = vector_float3((lastArData?.frame?.camera.transform.columns.3.x)!, (lastArData?.frame?.camera.transform.columns.3.y)!, (lastArData?.frame?.camera.transform.columns.3.z)!)
-            
-            if self.calculateDist3D(curPoint: currentPointCentroid, camPos: camPosition) {
-                self.captureFrameData(filteringPhase: 0, projectDepthMap: true, currentPointCentroid: currentPointCentroid)
-            }
-        }
+        // Test for automatically capture frames based on the view
+        //if (arData.frameId % 5 == 0 && arReceiver.currentARPointCloud != nil) {
+        //    let currentPointCentroid = calculatePointcloudMean(points: arReceiver.currentARPointCloud!)
+        //    let camPosition = vector_float3((lastArData?.frame?.camera.transform.columns.3.x)!, (lastArData?.frame?.camera.transform.columns.3.y)!, (lastArData?.frame?.camera.transform.columns.3.z)!)
+        //
+        //    if self.calculateDist3D(curPoint: currentPointCentroid, camPos: camPosition) {
+        //        self.captureFrameData(filteringPhase: 0, projectDepthMap: true, currentPointCentroid: currentPointCentroid)
+        //    }
+        //}
     }
     
     // Stream data from ARReceiver.

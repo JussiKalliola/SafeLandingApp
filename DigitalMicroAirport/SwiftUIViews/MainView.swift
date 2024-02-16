@@ -46,6 +46,9 @@ struct MainView: View {
     @Binding var terCompRough: Double
     @Binding var terCompRel: Double
     
+    @Binding var useRos: Bool
+    @Binding var rosIpAddress: String
+    
     
     var confLevels = [0, 1, 2]
     
@@ -156,13 +159,6 @@ struct MainView: View {
                     
                     // Show statistics in the bottom right corner of the video feed.
                     VStack {
-                        Slider(
-                            value: $offsetY,
-                            in: 0...5.0,
-                            step: 0.1
-                        ).rotationEffect(.degrees(-90.0))
-                            .frame(width: 100, height: 100)
-                        Text("\(offsetY) m").font(.system(size: 12))
                         Spacer()
                         Text("\(arProvider.lastArData?.worldMeshes.count ?? 0) Meshes ").font(.system(size: 12))
                         Text("\((arProvider.lastArData?.finalPointCloud.count ?? 0) > 1000 ? ((arProvider.lastArData?.finalPointCloud.count ?? 0) / 1000) : (arProvider.lastArData?.finalPointCloud.count ?? 0)) \((arProvider.lastArData?.finalPointCloud.count ?? 0) > 1000 ? "K" : "") Points").font(.system(size: 12))
@@ -170,6 +166,15 @@ struct MainView: View {
                         
                     }.zIndex(3)
                 }.frame(height:100, alignment: .bottom).padding([.horizontal, .vertical], 10)
+                if(arProvider.websocket != nil) {
+                    HStack{
+
+                        Circle()
+                            .fill(arProvider.websocket!.connected ? .green : .red)
+                            .frame(width: 10, height: 10)
+                        Text(arProvider.websocket!.connectionStatus)
+                    }.frame(height:20, alignment: .bottom).padding([.horizontal, .vertical], 10)
+                }
                 
             }
             
@@ -177,21 +182,21 @@ struct MainView: View {
                 HStack {
                     
                     //-------------- Test websocket send. --------------
-                    Button(action: {
-                        
-                        arProvider.websocket?.publish(json: ["op": "publish", "topic": "/test_topic", "msg": ["data": "test msg."]])
-                        
-                        
-                    }) {
-                        VStack {
-                            Image(systemName: "message")
-                                .resizable()
-                                .frame(width: btnSize, height: btnSize)
-                                .foregroundColor(.white)
-                            Text("Send").font(.system(size: 11)).foregroundColor(.white)
-                        }
-                    }.padding([.horizontal], 20)
-                     .disabled(processingState != .none)
+//                    Button(action: {
+//                    
+//                        arProvider.websocket?.publish(json: ["op": "publish", "topic": "/test_topic", "msg": ["data": "test msg."]])
+//
+//                        
+//                    }) {
+//                        VStack {
+//                            Image(systemName: "message")
+//                                .resizable()
+//                                .frame(width: btnSize, height: btnSize)
+//                                .foregroundColor(.white)
+//                            Text("Send").font(.system(size: 11)).foregroundColor(.white)
+//                        }
+//                    }.padding([.horizontal], 20)
+//                     .disabled(processingState != .none)
                     
                     
                     
@@ -203,6 +208,9 @@ struct MainView: View {
                         
                         if arProvider.scanState {
                             arProvider.confSelection = selectedConfidence
+                            if(self.useRos) {
+                                arProvider.websocket = WebSocket(url: self.rosIpAddress)
+                            }
                             //arProvider.startTimer()
                         } else {
                             //arProvider.stopTimer()

@@ -12,11 +12,15 @@ class WebSocket: NSObject, URLSessionWebSocketDelegate {
     
     var session: URLSession?
     var url: URL?
+    
     var webSocket : URLSessionWebSocketTask?
+    var connected: Bool = false
+    var connectionStatus: String = ""
 
     
     init(url: String = "ws://192.168.177.6:9090") {
         super.init()
+        
         self.session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
         self.url = URL(string:  url)
         
@@ -26,6 +30,7 @@ class WebSocket: NSObject, URLSessionWebSocketDelegate {
     func start() {
         //Socket
         self.webSocket = self.session!.webSocketTask(with: self.url!)
+        connectionStatus = "Trying to connect..."
         
         //Connect and hanles handshake
         self.webSocket?.resume()
@@ -149,6 +154,8 @@ class WebSocket: NSObject, URLSessionWebSocketDelegate {
     //MARK: URLSESSION Protocols
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
         print("Connected to server")
+        connectionStatus = "WebSocket connected succesfully."
+        self.connected = true
         self.receive()
         //self.send(msg: "Test connection")
         
@@ -163,7 +170,26 @@ class WebSocket: NSObject, URLSessionWebSocketDelegate {
     
     
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
+        self.connected = false
+        connectionStatus = "Disconnected from the server."
         print("Disconnect from Server \(reason)")
+    }
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        if let error = error {
+            connectionStatus = "Error while trying to connect."
+            handleError(error)
+        }
+    }
+    
+    /// we need to check if error code is one of the 57 , 60 , 54 timeout no network and internet offline to notify delegate we disconnected from internet
+    private func handleError(_ error: Error?) {
+        if let error = error as NSError? {
+            if error.code == 57 || error.code == 60 || error.code == 54 {
+                connected = false
+                closeSession()
+            }
+        }
     }
     
 }

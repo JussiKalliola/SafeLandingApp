@@ -57,6 +57,9 @@ struct ContentView : View {
     @State var terCompRough: Double = 0.05
     @State var terCompRel: Double = 0.03
     
+    @State var useRos: Bool = false
+    @State var rosIpAddress: String = ""
+    
     init() {
         setGlobalVariables(PCLGlobalVariables(K: Int32(K),
                                               minClusterSize: Int32(minClusterSize),
@@ -87,7 +90,9 @@ struct ContentView : View {
                               landingRadius: $landingRadius,
                               terCompSlope: $terCompSlope,
                               terCompRough: $terCompRough,
-                              terCompRel: $terCompRel)
+                              terCompRel: $terCompRel,
+                              useRos: $useRos,
+                              rosIpAddress: $rosIpAddress)
                          .frame(width: geometry.size.width, height: geometry.size.height)
                          .offset(x: self.showMenu ? geometry.size.width : 0)
                          .disabled(self.showMenu ? true : false)
@@ -107,7 +112,9 @@ struct ContentView : View {
                                       landingRadius: $landingRadius,
                                       terCompSlope: $terCompSlope,
                                       terCompRough: $terCompRough,
-                                      terCompRel: $terCompRel)
+                                      terCompRel: $terCompRel,
+                                      useRos: $useRos,
+                                      rosIpAddress: $rosIpAddress)
                              .frame(width: geometry.size.width, height: geometry.size.height)
                              .transition(.move(edge: .leading))
                      }
