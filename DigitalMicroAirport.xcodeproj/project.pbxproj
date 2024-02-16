@@ -1,0 +1,764 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		653D127CBDF567146DFF5CE6 /* Pods_DigitalMicroAirport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9437A3D023B792F83BF4CF /* Pods_DigitalMicroAirport.framework */; };
+		BC6221B329114D0D0020983D /* PointCloudProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6221B229114D0D0020983D /* PointCloudProcessing.swift */; };
+		BC83B86D2927C8F1004D5084 /* PointClassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83B86C2927C8F1004D5084 /* PointClassView.swift */; };
+		BCA3F9CF2A9CA87D00C3A24D /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA3F9CE2A9CA87D00C3A24D /* WebSocket.swift */; };
+		BCA4BEDF29083056008D48BE /* libpcl_tracking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BEDB29083022008D48BE /* libpcl_tracking.a */; };
+		BCA4BEE029083056008D48BE /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BED329083022008D48BE /* libboost_filesystem.a */; };
+		BCA4BEE129083056008D48BE /* libqhullstatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BEC629083022008D48BE /* libqhullstatic.a */; };
+		BCA4BEE229083056008D48BE /* libpcl_ml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BECA29083022008D48BE /* libpcl_ml.a */; };
+		BCA4BEE329083056008D48BE /* libboost_regex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BEC929083022008D48BE /* libboost_regex.a */; };
+		BCA4BEE429083056008D48BE /* libpcl_keypoints.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BECE29083022008D48BE /* libpcl_keypoints.a */; };
+		BCA4BEE529083056008D48BE /* libqhullstatic_r.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BEDA29083022008D48BE /* libqhullstatic_r.a */; };
+		BCA4BEE629083056008D48BE /* libflann_cpp_s.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BEC829083022008D48BE /* libflann_cpp_s.a */; };
+		BCA4BEE729083056008D48BE /* libpcl_octree.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BEC529083022008D48BE /* libpcl_octree.a */; };
+		BCA4BEE829083056008D48BE /* libpcl_stereo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BEDE29083022008D48BE /* libpcl_stereo.a */; };
+		BCA4BEE929083056008D48BE /* libpcl_segmentation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BED729083022008D48BE /* libpcl_segmentation.a */; };
+		BCA4BEEA29083056008D48BE /* libpcl_filters.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BED029083022008D48BE /* libpcl_filters.a */; };
+		BCA4BEEB29083056008D48BE /* libpcl_sample_consensus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BED829083022008D48BE /* libpcl_sample_consensus.a */; };
+		BCA4BEEC29083056008D48BE /* libpcl_io.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BED629083022008D48BE /* libpcl_io.a */; };
+		BCA4BEED29083056008D48BE /* libpcl_kdtree.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BED229083022008D48BE /* libpcl_kdtree.a */; };
+		BCA4BEEE29083056008D48BE /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BEC229083022008D48BE /* libboost_system.a */; };
+		BCA4BEEF29083056008D48BE /* libpcl_registration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BED529083022008D48BE /* libpcl_registration.a */; };
+		BCA4BEF029083056008D48BE /* libpcl_features.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BECD29083022008D48BE /* libpcl_features.a */; };
+		BCA4BEF129083056008D48BE /* libpcl_surface.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BECB29083022008D48BE /* libpcl_surface.a */; };
+		BCA4BEF229083056008D48BE /* libqhullcpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BECF29083022008D48BE /* libqhullcpp.a */; };
+		BCA4BEF329083056008D48BE /* libboost_date_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BED929083022008D48BE /* libboost_date_time.a */; };
+		BCA4BEF429083056008D48BE /* libpcl_search.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BED429083022008D48BE /* libpcl_search.a */; };
+		BCA4BEF529083056008D48BE /* libpcl_common.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BEDD29083022008D48BE /* libpcl_common.a */; };
+		BCA4BEF629083056008D48BE /* libboost_program_options.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BEC429083022008D48BE /* libboost_program_options.a */; };
+		BCA4BEF729083056008D48BE /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BEDC29083022008D48BE /* libboost_thread.a */; };
+		BCA4BEF829083056008D48BE /* libboost_iostreams.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BEC329083022008D48BE /* libboost_iostreams.a */; };
+		BCA4BEF929083056008D48BE /* libpcl_io_ply.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BED129083022008D48BE /* libpcl_io_ply.a */; };
+		BCA4BEFA29083056008D48BE /* libboost_signals.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BECC29083022008D48BE /* libboost_signals.a */; };
+		BCA4BEFB29083056008D48BE /* libpcl_recognition.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA4BEC729083022008D48BE /* libpcl_recognition.a */; };
+		BCAB1BB5290D4A1E0084AFDD /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAB1BB4290D4A1E0084AFDD /* SideMenuView.swift */; };
+		BCAB1BB8290D4A9C0084AFDD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAB1BB7290D4A9C0084AFDD /* MainView.swift */; };
+		BCAB1BBA290FB3B50084AFDD /* TerrainEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAB1BB9290FB3B50084AFDD /* TerrainEvaluation.swift */; };
+		BCAB1BBC291002A90084AFDD /* SigmaDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAB1BBB291002A90084AFDD /* SigmaDistrib.swift */; };
+		BCB0B7502908076F0099293F /* HelloWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCB0B74E2908076F0099293F /* HelloWorld.cpp */; };
+		BCB0B757290808890099293F /* HelloWorldWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCB0B756290808890099293F /* HelloWorldWrapper.mm */; };
+		BCCD47F528E5691B00E08220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD47F428E5691B00E08220 /* AppDelegate.swift */; };
+		BCCD47F728E5691B00E08220 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD47F628E5691B00E08220 /* ContentView.swift */; };
+		BCCD47FB28E5691B00E08220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCCD47FA28E5691B00E08220 /* Assets.xcassets */; };
+		BCCD47FE28E5691B00E08220 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCCD47FD28E5691B00E08220 /* Preview Assets.xcassets */; };
+		BCCD480528E569EA00E08220 /* MetalViewMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD480428E569EA00E08220 /* MetalViewMain.swift */; };
+		BCCD480828E56B9400E08220 /* ARReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD480728E56B9400E08220 /* ARReceiver.swift */; };
+		BCCD480A28E56C2500E08220 /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD480928E56C2500E08220 /* Structures.swift */; };
+		BCCD480C28E56DA400E08220 /* ARDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD480B28E56DA400E08220 /* ARDataProvider.swift */; };
+		BCCD480F28E5726C00E08220 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD480E28E5726C00E08220 /* Extensions.swift */; };
+		BCCD481128E5742500E08220 /* MetalViewCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD481028E5742500E08220 /* MetalViewCamera.swift */; };
+		BCCD481328E57A7B00E08220 /* shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = BCCD481228E57A7B00E08220 /* shaders.metal */; };
+		BCCD481528E58BD500E08220 /* MetalViewDepth.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD481428E58BD500E08220 /* MetalViewDepth.swift */; };
+		BCCD481728E5ACC600E08220 /* EnvironmentVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD481628E5ACC600E08220 /* EnvironmentVariables.swift */; };
+		BCCD481928EC475E00E08220 /* FileManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD481828EC475E00E08220 /* FileManagerHelper.swift */; };
+		BCE2217B29081FA3009DE644 /* PCLWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCE2217929081FA3009DE644 /* PCLWrapper.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6368FB1E35552FC92685B328 /* Pods-DigitalMicroAirport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalMicroAirport.release.xcconfig"; path = "Target Support Files/Pods-DigitalMicroAirport/Pods-DigitalMicroAirport.release.xcconfig"; sourceTree = "<group>"; };
+		7B9437A3D023B792F83BF4CF /* Pods_DigitalMicroAirport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigitalMicroAirport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9128976E47FFD72CBF7BFC97 /* Pods-DigitalMicroAirport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalMicroAirport.debug.xcconfig"; path = "Target Support Files/Pods-DigitalMicroAirport/Pods-DigitalMicroAirport.debug.xcconfig"; sourceTree = "<group>"; };
+		BC27CB2029D32287006A3BDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BC6221B229114D0D0020983D /* PointCloudProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCloudProcessing.swift; sourceTree = "<group>"; };
+		BC83B86C2927C8F1004D5084 /* PointClassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointClassView.swift; sourceTree = "<group>"; };
+		BCA3F9CE2A9CA87D00C3A24D /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
+		BCA4BEC229083022008D48BE /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = PCL_Build_Artifacts/libboost_system.a; sourceTree = SOURCE_ROOT; };
+		BCA4BEC329083022008D48BE /* libboost_iostreams.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_iostreams.a; path = PCL_Build_Artifacts/libboost_iostreams.a; sourceTree = SOURCE_ROOT; };
+		BCA4BEC429083022008D48BE /* libboost_program_options.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_program_options.a; path = PCL_Build_Artifacts/libboost_program_options.a; sourceTree = SOURCE_ROOT; };
+		BCA4BEC529083022008D48BE /* libpcl_octree.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_octree.a; path = PCL_Build_Artifacts/libpcl_octree.a; sourceTree = SOURCE_ROOT; };
+		BCA4BEC629083022008D48BE /* libqhullstatic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libqhullstatic.a; path = PCL_Build_Artifacts/libqhullstatic.a; sourceTree = SOURCE_ROOT; };
+		BCA4BEC729083022008D48BE /* libpcl_recognition.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_recognition.a; path = PCL_Build_Artifacts/libpcl_recognition.a; sourceTree = SOURCE_ROOT; };
+		BCA4BEC829083022008D48BE /* libflann_cpp_s.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libflann_cpp_s.a; path = PCL_Build_Artifacts/libflann_cpp_s.a; sourceTree = SOURCE_ROOT; };
+		BCA4BEC929083022008D48BE /* libboost_regex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_regex.a; path = PCL_Build_Artifacts/libboost_regex.a; sourceTree = SOURCE_ROOT; };
+		BCA4BECA29083022008D48BE /* libpcl_ml.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_ml.a; path = PCL_Build_Artifacts/libpcl_ml.a; sourceTree = SOURCE_ROOT; };
+		BCA4BECB29083022008D48BE /* libpcl_surface.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_surface.a; path = PCL_Build_Artifacts/libpcl_surface.a; sourceTree = SOURCE_ROOT; };
+		BCA4BECC29083022008D48BE /* libboost_signals.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_signals.a; path = PCL_Build_Artifacts/libboost_signals.a; sourceTree = SOURCE_ROOT; };
+		BCA4BECD29083022008D48BE /* libpcl_features.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_features.a; path = PCL_Build_Artifacts/libpcl_features.a; sourceTree = SOURCE_ROOT; };
+		BCA4BECE29083022008D48BE /* libpcl_keypoints.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_keypoints.a; path = PCL_Build_Artifacts/libpcl_keypoints.a; sourceTree = SOURCE_ROOT; };
+		BCA4BECF29083022008D48BE /* libqhullcpp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libqhullcpp.a; path = PCL_Build_Artifacts/libqhullcpp.a; sourceTree = SOURCE_ROOT; };
+		BCA4BED029083022008D48BE /* libpcl_filters.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_filters.a; path = PCL_Build_Artifacts/libpcl_filters.a; sourceTree = SOURCE_ROOT; };
+		BCA4BED129083022008D48BE /* libpcl_io_ply.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_io_ply.a; path = PCL_Build_Artifacts/libpcl_io_ply.a; sourceTree = SOURCE_ROOT; };
+		BCA4BED229083022008D48BE /* libpcl_kdtree.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_kdtree.a; path = PCL_Build_Artifacts/libpcl_kdtree.a; sourceTree = SOURCE_ROOT; };
+		BCA4BED329083022008D48BE /* libboost_filesystem.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_filesystem.a; path = PCL_Build_Artifacts/libboost_filesystem.a; sourceTree = SOURCE_ROOT; };
+		BCA4BED429083022008D48BE /* libpcl_search.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_search.a; path = PCL_Build_Artifacts/libpcl_search.a; sourceTree = SOURCE_ROOT; };
+		BCA4BED529083022008D48BE /* libpcl_registration.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_registration.a; path = PCL_Build_Artifacts/libpcl_registration.a; sourceTree = SOURCE_ROOT; };
+		BCA4BED629083022008D48BE /* libpcl_io.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_io.a; path = PCL_Build_Artifacts/libpcl_io.a; sourceTree = SOURCE_ROOT; };
+		BCA4BED729083022008D48BE /* libpcl_segmentation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_segmentation.a; path = PCL_Build_Artifacts/libpcl_segmentation.a; sourceTree = SOURCE_ROOT; };
+		BCA4BED829083022008D48BE /* libpcl_sample_consensus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_sample_consensus.a; path = PCL_Build_Artifacts/libpcl_sample_consensus.a; sourceTree = SOURCE_ROOT; };
+		BCA4BED929083022008D48BE /* libboost_date_time.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_date_time.a; path = PCL_Build_Artifacts/libboost_date_time.a; sourceTree = SOURCE_ROOT; };
+		BCA4BEDA29083022008D48BE /* libqhullstatic_r.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libqhullstatic_r.a; path = PCL_Build_Artifacts/libqhullstatic_r.a; sourceTree = SOURCE_ROOT; };
+		BCA4BEDB29083022008D48BE /* libpcl_tracking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_tracking.a; path = PCL_Build_Artifacts/libpcl_tracking.a; sourceTree = SOURCE_ROOT; };
+		BCA4BEDC29083022008D48BE /* libboost_thread.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_thread.a; path = PCL_Build_Artifacts/libboost_thread.a; sourceTree = SOURCE_ROOT; };
+		BCA4BEDD29083022008D48BE /* libpcl_common.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_common.a; path = PCL_Build_Artifacts/libpcl_common.a; sourceTree = SOURCE_ROOT; };
+		BCA4BEDE29083022008D48BE /* libpcl_stereo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_stereo.a; path = PCL_Build_Artifacts/libpcl_stereo.a; sourceTree = SOURCE_ROOT; };
+		BCAB1BB4290D4A1E0084AFDD /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		BCAB1BB7290D4A9C0084AFDD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		BCAB1BB9290FB3B50084AFDD /* TerrainEvaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerrainEvaluation.swift; sourceTree = "<group>"; };
+		BCAB1BBB291002A90084AFDD /* SigmaDistrib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigmaDistrib.swift; sourceTree = "<group>"; };
+		BCB0B74E2908076F0099293F /* HelloWorld.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorld.cpp; sourceTree = "<group>"; };
+		BCB0B74F2908076F0099293F /* HelloWorld.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HelloWorld.hpp; sourceTree = "<group>"; };
+		BCB0B756290808890099293F /* HelloWorldWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = HelloWorldWrapper.mm; sourceTree = "<group>"; };
+		BCB0B758290809480099293F /* HelloWorldWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldWrapper.h; sourceTree = "<group>"; };
+		BCB0B759290809C90099293F /* DigitalMicroAirport-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DigitalMicroAirport-Bridging-Header.h"; sourceTree = "<group>"; };
+		BCCD47F128E5691B00E08220 /* DigitalMicroAirport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigitalMicroAirport.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCCD47F428E5691B00E08220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BCCD47F628E5691B00E08220 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BCCD47FA28E5691B00E08220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BCCD47FD28E5691B00E08220 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BCCD480428E569EA00E08220 /* MetalViewMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalViewMain.swift; sourceTree = "<group>"; };
+		BCCD480728E56B9400E08220 /* ARReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARReceiver.swift; sourceTree = "<group>"; };
+		BCCD480928E56C2500E08220 /* Structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
+		BCCD480B28E56DA400E08220 /* ARDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDataProvider.swift; sourceTree = "<group>"; };
+		BCCD480E28E5726C00E08220 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BCCD481028E5742500E08220 /* MetalViewCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalViewCamera.swift; sourceTree = "<group>"; };
+		BCCD481228E57A7B00E08220 /* shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = shaders.metal; sourceTree = "<group>"; };
+		BCCD481428E58BD500E08220 /* MetalViewDepth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalViewDepth.swift; sourceTree = "<group>"; };
+		BCCD481628E5ACC600E08220 /* EnvironmentVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentVariables.swift; sourceTree = "<group>"; };
+		BCCD481828EC475E00E08220 /* FileManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerHelper.swift; sourceTree = "<group>"; };
+		BCE2217629081EE1009DE644 /* libpcl_filters.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_filters.a; path = PCL_Build_Artifacts/libpcl_filters.a; sourceTree = "<group>"; };
+		BCE2217929081FA3009DE644 /* PCLWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PCLWrapper.cpp; sourceTree = "<group>"; };
+		BCE2217A29081FA3009DE644 /* PCLWrapper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PCLWrapper.hpp; sourceTree = "<group>"; };
+		BCE2217D2908204E009DE644 /* libpcl_common.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_common.a; path = PCL_Build_Artifacts/libpcl_common.a; sourceTree = "<group>"; };
+		BCE2218929082153009DE644 /* libboost_signals.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_signals.a; path = PCL_Build_Artifacts/libboost_signals.a; sourceTree = "<group>"; };
+		BCE2218A29082153009DE644 /* libpcl_sample_consensus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_sample_consensus.a; path = PCL_Build_Artifacts/libpcl_sample_consensus.a; sourceTree = "<group>"; };
+		BCE2218B29082153009DE644 /* libpcl_ml.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_ml.a; path = PCL_Build_Artifacts/libpcl_ml.a; sourceTree = "<group>"; };
+		BCE2218C29082153009DE644 /* libpcl_io.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_io.a; path = PCL_Build_Artifacts/libpcl_io.a; sourceTree = "<group>"; };
+		BCE2218D29082154009DE644 /* libpcl_features.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_features.a; path = PCL_Build_Artifacts/libpcl_features.a; sourceTree = "<group>"; };
+		BCE2218E29082154009DE644 /* libflann_cpp_s.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libflann_cpp_s.a; path = PCL_Build_Artifacts/libflann_cpp_s.a; sourceTree = "<group>"; };
+		BCE2218F29082154009DE644 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = PCL_Build_Artifacts/libboost_system.a; sourceTree = "<group>"; };
+		BCE2219029082154009DE644 /* libpcl_octree.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_octree.a; path = PCL_Build_Artifacts/libpcl_octree.a; sourceTree = "<group>"; };
+		BCE2219129082154009DE644 /* libpcl_tracking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_tracking.a; path = PCL_Build_Artifacts/libpcl_tracking.a; sourceTree = "<group>"; };
+		BCE2219229082155009DE644 /* libboost_filesystem.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_filesystem.a; path = PCL_Build_Artifacts/libboost_filesystem.a; sourceTree = "<group>"; };
+		BCE2219329082155009DE644 /* libqhullstatic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libqhullstatic.a; path = PCL_Build_Artifacts/libqhullstatic.a; sourceTree = "<group>"; };
+		BCE2219429082155009DE644 /* libboost_iostreams.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_iostreams.a; path = PCL_Build_Artifacts/libboost_iostreams.a; sourceTree = "<group>"; };
+		BCE2219529082155009DE644 /* libpcl_recognition.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_recognition.a; path = PCL_Build_Artifacts/libpcl_recognition.a; sourceTree = "<group>"; };
+		BCE2219629082155009DE644 /* libpcl_io_ply.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_io_ply.a; path = PCL_Build_Artifacts/libpcl_io_ply.a; sourceTree = "<group>"; };
+		BCE2219729082155009DE644 /* libqhullstatic_r.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libqhullstatic_r.a; path = PCL_Build_Artifacts/libqhullstatic_r.a; sourceTree = "<group>"; };
+		BCE2219829082155009DE644 /* libboost_program_options.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_program_options.a; path = PCL_Build_Artifacts/libboost_program_options.a; sourceTree = "<group>"; };
+		BCE2219929082156009DE644 /* libboost_date_time.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_date_time.a; path = PCL_Build_Artifacts/libboost_date_time.a; sourceTree = "<group>"; };
+		BCE2219A29082156009DE644 /* libpcl_surface.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_surface.a; path = PCL_Build_Artifacts/libpcl_surface.a; sourceTree = "<group>"; };
+		BCE2219B29082156009DE644 /* libboost_regex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_regex.a; path = PCL_Build_Artifacts/libboost_regex.a; sourceTree = "<group>"; };
+		BCE2219C29082156009DE644 /* libqhullcpp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libqhullcpp.a; path = PCL_Build_Artifacts/libqhullcpp.a; sourceTree = "<group>"; };
+		BCE2219D29082156009DE644 /* libpcl_stereo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_stereo.a; path = PCL_Build_Artifacts/libpcl_stereo.a; sourceTree = "<group>"; };
+		BCE2219E29082156009DE644 /* libpcl_search.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_search.a; path = PCL_Build_Artifacts/libpcl_search.a; sourceTree = "<group>"; };
+		BCE2219F29082157009DE644 /* libpcl_segmentation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_segmentation.a; path = PCL_Build_Artifacts/libpcl_segmentation.a; sourceTree = "<group>"; };
+		BCE221A029082157009DE644 /* libboost_thread.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_thread.a; path = PCL_Build_Artifacts/libboost_thread.a; sourceTree = "<group>"; };
+		BCE221A129082157009DE644 /* libpcl_registration.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_registration.a; path = PCL_Build_Artifacts/libpcl_registration.a; sourceTree = "<group>"; };
+		BCE221A229082157009DE644 /* libpcl_kdtree.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_kdtree.a; path = PCL_Build_Artifacts/libpcl_kdtree.a; sourceTree = "<group>"; };
+		BCE221A329082157009DE644 /* libpcl_keypoints.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcl_keypoints.a; path = PCL_Build_Artifacts/libpcl_keypoints.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BCCD47EE28E5691B00E08220 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCA4BEE129083056008D48BE /* libqhullstatic.a in Frameworks */,
+				BCA4BEF629083056008D48BE /* libboost_program_options.a in Frameworks */,
+				BCA4BEEC29083056008D48BE /* libpcl_io.a in Frameworks */,
+				BCA4BEF729083056008D48BE /* libboost_thread.a in Frameworks */,
+				BCA4BEF029083056008D48BE /* libpcl_features.a in Frameworks */,
+				BCA4BEED29083056008D48BE /* libpcl_kdtree.a in Frameworks */,
+				BCA4BEEB29083056008D48BE /* libpcl_sample_consensus.a in Frameworks */,
+				BCA4BEF829083056008D48BE /* libboost_iostreams.a in Frameworks */,
+				BCA4BEF429083056008D48BE /* libpcl_search.a in Frameworks */,
+				BCA4BEE329083056008D48BE /* libboost_regex.a in Frameworks */,
+				BCA4BEF229083056008D48BE /* libqhullcpp.a in Frameworks */,
+				BCA4BEF929083056008D48BE /* libpcl_io_ply.a in Frameworks */,
+				BCA4BEE229083056008D48BE /* libpcl_ml.a in Frameworks */,
+				BCA4BEE929083056008D48BE /* libpcl_segmentation.a in Frameworks */,
+				BCA4BEDF29083056008D48BE /* libpcl_tracking.a in Frameworks */,
+				BCA4BEE429083056008D48BE /* libpcl_keypoints.a in Frameworks */,
+				BCA4BEF529083056008D48BE /* libpcl_common.a in Frameworks */,
+				653D127CBDF567146DFF5CE6 /* Pods_DigitalMicroAirport.framework in Frameworks */,
+				BCA4BEFA29083056008D48BE /* libboost_signals.a in Frameworks */,
+				BCA4BEFB29083056008D48BE /* libpcl_recognition.a in Frameworks */,
+				BCA4BEF329083056008D48BE /* libboost_date_time.a in Frameworks */,
+				BCA4BEEF29083056008D48BE /* libpcl_registration.a in Frameworks */,
+				BCA4BEE629083056008D48BE /* libflann_cpp_s.a in Frameworks */,
+				BCA4BEF129083056008D48BE /* libpcl_surface.a in Frameworks */,
+				BCA4BEE029083056008D48BE /* libboost_filesystem.a in Frameworks */,
+				BCA4BEE529083056008D48BE /* libqhullstatic_r.a in Frameworks */,
+				BCA4BEE729083056008D48BE /* libpcl_octree.a in Frameworks */,
+				BCA4BEEA29083056008D48BE /* libpcl_filters.a in Frameworks */,
+				BCA4BEE829083056008D48BE /* libpcl_stereo.a in Frameworks */,
+				BCA4BEEE29083056008D48BE /* libboost_system.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		44893757B9B0B900B361B94E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BCE2219929082156009DE644 /* libboost_date_time.a */,
+				BCE2219229082155009DE644 /* libboost_filesystem.a */,
+				BCE2219429082155009DE644 /* libboost_iostreams.a */,
+				BCE2219829082155009DE644 /* libboost_program_options.a */,
+				BCE2219B29082156009DE644 /* libboost_regex.a */,
+				BCE2218929082153009DE644 /* libboost_signals.a */,
+				BCE2218F29082154009DE644 /* libboost_system.a */,
+				BCE221A029082157009DE644 /* libboost_thread.a */,
+				BCE2218E29082154009DE644 /* libflann_cpp_s.a */,
+				BCE2218D29082154009DE644 /* libpcl_features.a */,
+				BCE2219629082155009DE644 /* libpcl_io_ply.a */,
+				BCE2218C29082153009DE644 /* libpcl_io.a */,
+				BCE221A229082157009DE644 /* libpcl_kdtree.a */,
+				BCE221A329082157009DE644 /* libpcl_keypoints.a */,
+				BCE2218B29082153009DE644 /* libpcl_ml.a */,
+				BCE2219029082154009DE644 /* libpcl_octree.a */,
+				BCE2219529082155009DE644 /* libpcl_recognition.a */,
+				BCE221A129082157009DE644 /* libpcl_registration.a */,
+				BCE2218A29082153009DE644 /* libpcl_sample_consensus.a */,
+				BCE2219E29082156009DE644 /* libpcl_search.a */,
+				BCE2219F29082157009DE644 /* libpcl_segmentation.a */,
+				BCE2219D29082156009DE644 /* libpcl_stereo.a */,
+				BCE2219A29082156009DE644 /* libpcl_surface.a */,
+				BCE2219129082154009DE644 /* libpcl_tracking.a */,
+				BCE2219C29082156009DE644 /* libqhullcpp.a */,
+				BCE2219729082155009DE644 /* libqhullstatic_r.a */,
+				BCE2219329082155009DE644 /* libqhullstatic.a */,
+				BCE2217D2908204E009DE644 /* libpcl_common.a */,
+				BCE2217629081EE1009DE644 /* libpcl_filters.a */,
+				7B9437A3D023B792F83BF4CF /* Pods_DigitalMicroAirport.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BCAB1BB6290D4A3D0084AFDD /* SwiftUIViews */ = {
+			isa = PBXGroup;
+			children = (
+				BCAB1BB4290D4A1E0084AFDD /* SideMenuView.swift */,
+				BCCD47F628E5691B00E08220 /* ContentView.swift */,
+				BCAB1BB7290D4A9C0084AFDD /* MainView.swift */,
+				BC83B86C2927C8F1004D5084 /* PointClassView.swift */,
+			);
+			path = SwiftUIViews;
+			sourceTree = "<group>";
+		};
+		BCB0B74D290807520099293F /* C++Library */ = {
+			isa = PBXGroup;
+			children = (
+				BCB0B74E2908076F0099293F /* HelloWorld.cpp */,
+				BCB0B74F2908076F0099293F /* HelloWorld.hpp */,
+				BCB0B756290808890099293F /* HelloWorldWrapper.mm */,
+				BCB0B758290809480099293F /* HelloWorldWrapper.h */,
+			);
+			path = "C++Library";
+			sourceTree = "<group>";
+		};
+		BCCD47E828E5691B00E08220 = {
+			isa = PBXGroup;
+			children = (
+				BCE2217C2908203A009DE644 /* Libraries */,
+				BCCD47F328E5691B00E08220 /* DigitalMicroAirport */,
+				BCCD47F228E5691B00E08220 /* Products */,
+				FB45AE3A73B047BC3A0D3121 /* Pods */,
+				44893757B9B0B900B361B94E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BCCD47F228E5691B00E08220 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BCCD47F128E5691B00E08220 /* DigitalMicroAirport.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BCCD47F328E5691B00E08220 /* DigitalMicroAirport */ = {
+			isa = PBXGroup;
+			children = (
+				BC27CB2029D32287006A3BDE /* Info.plist */,
+				BCAB1BB6290D4A3D0084AFDD /* SwiftUIViews */,
+				BCE2217829081F61009DE644 /* PCLWrapper */,
+				BCB0B74D290807520099293F /* C++Library */,
+				BCCD480D28E56DAC00E08220 /* AR */,
+				BCCD480628E569FA00E08220 /* MetalViews */,
+				BCCD480E28E5726C00E08220 /* Extensions.swift */,
+				BCCD481628E5ACC600E08220 /* EnvironmentVariables.swift */,
+				BCCD480928E56C2500E08220 /* Structures.swift */,
+				BCCD47F428E5691B00E08220 /* AppDelegate.swift */,
+				BCCD481828EC475E00E08220 /* FileManagerHelper.swift */,
+				BCCD481228E57A7B00E08220 /* shaders.metal */,
+				BCCD47FA28E5691B00E08220 /* Assets.xcassets */,
+				BCCD47FC28E5691B00E08220 /* Preview Content */,
+				BCAB1BB9290FB3B50084AFDD /* TerrainEvaluation.swift */,
+				BCAB1BBB291002A90084AFDD /* SigmaDistrib.swift */,
+				BCA3F9CE2A9CA87D00C3A24D /* WebSocket.swift */,
+			);
+			path = DigitalMicroAirport;
+			sourceTree = "<group>";
+		};
+		BCCD47FC28E5691B00E08220 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BCCD47FD28E5691B00E08220 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BCCD480628E569FA00E08220 /* MetalViews */ = {
+			isa = PBXGroup;
+			children = (
+				BCCD480428E569EA00E08220 /* MetalViewMain.swift */,
+				BCCD481028E5742500E08220 /* MetalViewCamera.swift */,
+				BCCD481428E58BD500E08220 /* MetalViewDepth.swift */,
+			);
+			path = MetalViews;
+			sourceTree = "<group>";
+		};
+		BCCD480D28E56DAC00E08220 /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				BCCD480B28E56DA400E08220 /* ARDataProvider.swift */,
+				BCCD480728E56B9400E08220 /* ARReceiver.swift */,
+				BC6221B229114D0D0020983D /* PointCloudProcessing.swift */,
+			);
+			path = AR;
+			sourceTree = "<group>";
+		};
+		BCE2217829081F61009DE644 /* PCLWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				BCE2217929081FA3009DE644 /* PCLWrapper.cpp */,
+				BCE2217A29081FA3009DE644 /* PCLWrapper.hpp */,
+			);
+			path = PCLWrapper;
+			sourceTree = "<group>";
+		};
+		BCE2217C2908203A009DE644 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				BCA4BED929083022008D48BE /* libboost_date_time.a */,
+				BCA4BED329083022008D48BE /* libboost_filesystem.a */,
+				BCA4BEC329083022008D48BE /* libboost_iostreams.a */,
+				BCA4BEC429083022008D48BE /* libboost_program_options.a */,
+				BCA4BEC929083022008D48BE /* libboost_regex.a */,
+				BCA4BECC29083022008D48BE /* libboost_signals.a */,
+				BCA4BEC229083022008D48BE /* libboost_system.a */,
+				BCA4BEDC29083022008D48BE /* libboost_thread.a */,
+				BCA4BEC829083022008D48BE /* libflann_cpp_s.a */,
+				BCA4BEDD29083022008D48BE /* libpcl_common.a */,
+				BCA4BECD29083022008D48BE /* libpcl_features.a */,
+				BCA4BED029083022008D48BE /* libpcl_filters.a */,
+				BCA4BED129083022008D48BE /* libpcl_io_ply.a */,
+				BCA4BED629083022008D48BE /* libpcl_io.a */,
+				BCA4BED229083022008D48BE /* libpcl_kdtree.a */,
+				BCA4BECE29083022008D48BE /* libpcl_keypoints.a */,
+				BCA4BECA29083022008D48BE /* libpcl_ml.a */,
+				BCA4BEC529083022008D48BE /* libpcl_octree.a */,
+				BCA4BEC729083022008D48BE /* libpcl_recognition.a */,
+				BCA4BED529083022008D48BE /* libpcl_registration.a */,
+				BCA4BED829083022008D48BE /* libpcl_sample_consensus.a */,
+				BCA4BED429083022008D48BE /* libpcl_search.a */,
+				BCA4BED729083022008D48BE /* libpcl_segmentation.a */,
+				BCA4BEDE29083022008D48BE /* libpcl_stereo.a */,
+				BCA4BECB29083022008D48BE /* libpcl_surface.a */,
+				BCA4BEDB29083022008D48BE /* libpcl_tracking.a */,
+				BCA4BECF29083022008D48BE /* libqhullcpp.a */,
+				BCA4BEDA29083022008D48BE /* libqhullstatic_r.a */,
+				BCA4BEC629083022008D48BE /* libqhullstatic.a */,
+				BCB0B759290809C90099293F /* DigitalMicroAirport-Bridging-Header.h */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		FB45AE3A73B047BC3A0D3121 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9128976E47FFD72CBF7BFC97 /* Pods-DigitalMicroAirport.debug.xcconfig */,
+				6368FB1E35552FC92685B328 /* Pods-DigitalMicroAirport.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BCCD47F028E5691B00E08220 /* DigitalMicroAirport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCCD480128E5691B00E08220 /* Build configuration list for PBXNativeTarget "DigitalMicroAirport" */;
+			buildPhases = (
+				7440F61FE4D11E4A3F78E7E9 /* [CP] Check Pods Manifest.lock */,
+				BCCD47ED28E5691B00E08220 /* Sources */,
+				BCCD47EE28E5691B00E08220 /* Frameworks */,
+				BCCD47EF28E5691B00E08220 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DigitalMicroAirport;
+			productName = DigitalMicroAirport;
+			productReference = BCCD47F128E5691B00E08220 /* DigitalMicroAirport.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BCCD47E928E5691B00E08220 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					BCCD47F028E5691B00E08220 = {
+						CreatedOnToolsVersion = 14.0.1;
+						LastSwiftMigration = 1400;
+					};
+				};
+			};
+			buildConfigurationList = BCCD47EC28E5691B00E08220 /* Build configuration list for PBXProject "DigitalMicroAirport" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BCCD47E828E5691B00E08220;
+			productRefGroup = BCCD47F228E5691B00E08220 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BCCD47F028E5691B00E08220 /* DigitalMicroAirport */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BCCD47EF28E5691B00E08220 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCCD47FE28E5691B00E08220 /* Preview Assets.xcassets in Resources */,
+				BCCD47FB28E5691B00E08220 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7440F61FE4D11E4A3F78E7E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DigitalMicroAirport-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BCCD47ED28E5691B00E08220 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCCD47F728E5691B00E08220 /* ContentView.swift in Sources */,
+				BCAB1BBA290FB3B50084AFDD /* TerrainEvaluation.swift in Sources */,
+				BCAB1BBC291002A90084AFDD /* SigmaDistrib.swift in Sources */,
+				BCA3F9CF2A9CA87D00C3A24D /* WebSocket.swift in Sources */,
+				BCCD480C28E56DA400E08220 /* ARDataProvider.swift in Sources */,
+				BCAB1BB5290D4A1E0084AFDD /* SideMenuView.swift in Sources */,
+				BCB0B7502908076F0099293F /* HelloWorld.cpp in Sources */,
+				BCCD481528E58BD500E08220 /* MetalViewDepth.swift in Sources */,
+				BCCD480528E569EA00E08220 /* MetalViewMain.swift in Sources */,
+				BCE2217B29081FA3009DE644 /* PCLWrapper.cpp in Sources */,
+				BCCD47F528E5691B00E08220 /* AppDelegate.swift in Sources */,
+				BCCD481928EC475E00E08220 /* FileManagerHelper.swift in Sources */,
+				BCCD481728E5ACC600E08220 /* EnvironmentVariables.swift in Sources */,
+				BCCD480828E56B9400E08220 /* ARReceiver.swift in Sources */,
+				BCAB1BB8290D4A9C0084AFDD /* MainView.swift in Sources */,
+				BCCD480A28E56C2500E08220 /* Structures.swift in Sources */,
+				BCCD480F28E5726C00E08220 /* Extensions.swift in Sources */,
+				BCB0B757290808890099293F /* HelloWorldWrapper.mm in Sources */,
+				BCCD481128E5742500E08220 /* MetalViewCamera.swift in Sources */,
+				BCCD481328E57A7B00E08220 /* shaders.metal in Sources */,
+				BC83B86D2927C8F1004D5084 /* PointClassView.swift in Sources */,
+				BC6221B329114D0D0020983D /* PointCloudProcessing.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BCCD47FF28E5691B00E08220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "Libraries/DigitalMicroAirport-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BCCD480028E5691B00E08220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "Libraries/DigitalMicroAirport-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BCCD480228E5691B00E08220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9128976E47FFD72CBF7BFC97 /* Pods-DigitalMicroAirport.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DigitalMicroAirport/Preview Content\"";
+				DEVELOPMENT_TEAM = 7CUN75DRBD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KDTree/KDTree.framework/Headers\"",
+					"\"$(PROJECT_DIR)/Libraries/PCL/include/pcl-1.8\"",
+					"\"$(PROJECT_DIR)/Libraries/boost-ios-device/include\"",
+					"\"$(PROJECT_DIR)/Libraries/flann-ios-device/include\"",
+					"\"$(PROJECT_DIR)/Libraries/eigen\"",
+				);
+				INFOPLIST_FILE = DigitalMicroAirport/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Coordinates;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Coordinates;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PCL_Build_Artifacts",
+					"$(PROJECT_DIR)/Libraries/flann-ios-device/lib",
+					"$(PROJECT_DIR)/Libraries/eigen",
+					"$(PROJECT_DIR)/Libraries/boost-ios-device/lib",
+					"$(PROJECT_DIR)/Libraries/PCL/lib",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Tampere-University.DigitalMicroAirport";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Libraries/DigitalMicroAirport-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BCCD480328E5691B00E08220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6368FB1E35552FC92685B328 /* Pods-DigitalMicroAirport.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DigitalMicroAirport/Preview Content\"";
+				DEVELOPMENT_TEAM = 7CUN75DRBD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KDTree/KDTree.framework/Headers\"",
+					"\"$(PROJECT_DIR)/Libraries/PCL/include/pcl-1.8\"",
+					"\"$(PROJECT_DIR)/Libraries/boost-ios-device/include\"",
+					"\"$(PROJECT_DIR)/Libraries/flann-ios-device/include\"",
+					"\"$(PROJECT_DIR)/Libraries/eigen\"",
+				);
+				INFOPLIST_FILE = DigitalMicroAirport/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Coordinates;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Coordinates;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PCL_Build_Artifacts",
+					"$(PROJECT_DIR)/Libraries/flann-ios-device/lib",
+					"$(PROJECT_DIR)/Libraries/eigen",
+					"$(PROJECT_DIR)/Libraries/boost-ios-device/lib",
+					"$(PROJECT_DIR)/Libraries/PCL/lib",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Tampere-University.DigitalMicroAirport";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Libraries/DigitalMicroAirport-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BCCD47EC28E5691B00E08220 /* Build configuration list for PBXProject "DigitalMicroAirport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCCD47FF28E5691B00E08220 /* Debug */,
+				BCCD480028E5691B00E08220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCCD480128E5691B00E08220 /* Build configuration list for PBXNativeTarget "DigitalMicroAirport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCCD480228E5691B00E08220 /* Debug */,
+				BCCD480328E5691B00E08220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BCCD47E928E5691B00E08220 /* Project object */;
+}
