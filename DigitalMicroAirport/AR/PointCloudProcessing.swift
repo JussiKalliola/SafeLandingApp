@@ -405,6 +405,24 @@ func resetPointCloud() -> [PointCloud] {
 
 
 func updateOptimalLandingArea(optimalPoint: PointCloud, pointCloud: inout [PointCloud], radius: Double) {
+    
+    if(arProvider.useRos && arProvider.websocket!.connected) {
+        print("Publish target point with ROS")
+//        let d2 = Date()
+//        let elapsed = Float(d2.timeIntervalSince(arProvider.d1))
+//        let floorInt = floor(elapsed)
+//        //print(elapsed)
+//        let nanosec = Int((elapsed-floorInt)*1e+6)
+        //["header": ["stamp": ["sec": floorInt, "nanosec": nanosec], "frame_id": "iphone"],
+
+        arProvider.websocket?.publish(json: ["op": "publish",
+                                             "topic": "/iphone/target",
+                                             "msg": ["x": optimalPoint.position.x,
+                                                     "y": optimalPoint.position.y,
+                                                     "z": optimalPoint.position.z]
+                                            ])
+    }
+    
     let neighborhoodIdx = getPointNeighborhoodIndices(searchPoint: optimalPoint, pointCloud: pointCloud, radius: radius)
     
     //var updatedPointCloud = pointCloud

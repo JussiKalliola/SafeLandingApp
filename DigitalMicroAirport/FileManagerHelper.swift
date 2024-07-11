@@ -616,9 +616,23 @@ class FileManagerHelper {
                 let imageData:NSData = try NSData(bytes: srcPtr, length: capacity)
             
                 let strBase64:String = imageData.base64EncodedString(options: .lineLength64Characters)
-            
-                arProvider.websocket?.publish(json: ["op": "publish", "topic": "/iphone/confidence/image_raw",
-                                                     "msg": ["height": height, "width": width, "encoding": "32FC1", "is_bigendian": 0, "step": rowBytes, "data": strBase64]])
+                
+                let d2 = Date()
+                let elapsed = Float(d2.timeIntervalSince(arProvider.d1))
+                let floorInt = floor(elapsed)
+                //print(elapsed)
+                let nanosec = Int((elapsed-floorInt)*1e+6)
+                
+                arProvider.websocket?.publish(json: ["op": "publish",
+                                                     "topic": "/iphone/confidence/image_raw",
+                                                     "msg": ["header": ["stamp": ["sec": floorInt, "nanosec": nanosec], "frame_id": "iphone"],
+                                                             "height": height,
+                                                             "width": width,
+                                                             "encoding": "8UC1",
+                                                             "is_bigendian": 0,
+                                                             "step": rowBytes,
+                                                             "data": strBase64]
+                                                    ])
             
                 
                 //print(strBase64)
@@ -671,8 +685,23 @@ class FileManagerHelper {
                 let imageData:NSData = try NSData(bytes: srcPtr, length: capacity)
 
                 let strBase64:String = imageData.base64EncodedString(options: .lineLength64Characters)
+                
+                let d2 = Date()
+                let elapsed = Float(d2.timeIntervalSince(arProvider.d1))
+                let floorInt = floor(elapsed)
+                //print(elapsed)
+                let nanosec = Int((elapsed-floorInt)*1e+6)
 
-                arProvider.websocket?.publish(json: ["op": "publish", "topic": "/iphone/depth/image_raw", "msg": ["height": height, "width": width, "encoding": "32FC1", "is_bigendian": 0, "step": rowBytes, "data": strBase64]])
+                arProvider.websocket?.publish(json: ["op": "publish", 
+                                                     "topic": "/iphone/depth/image_raw",
+                                                     "msg": ["header": ["stamp": ["sec": floorInt, "nanosec": nanosec], "frame_id": "iphone"],
+                                                             "height": height,
+                                                             "width": width,
+                                                             "encoding": "32FC1",
+                                                             "is_bigendian": 0,
+                                                             "step": rowBytes,
+                                                             "data": strBase64]
+                                                    ])
 
 
                 //print(strBase64)
@@ -734,14 +763,22 @@ class FileManagerHelper {
         if(useRos && arProvider.websocket!.connected) {
             print("Publish raw image with ROS")
             do {
-                try? data.write(to: fileURL)
+                //try? data.write(to: fileURL)
+                
                 let imageData:NSData = try NSData(data: data)//NSData(bytes: src, length: imageByteCount)
             
                 let strBase64:String = imageData.base64EncodedString(options: .lineLength64Characters)
+                
+                let d2 = Date()
+                let elapsed = Float(d2.timeIntervalSince(arProvider.d1))
+                let floorInt = floor(elapsed)
+                //print(elapsed)
+                let nanosec = Int((elapsed-floorInt)*1e+6)
 
                 arProvider.websocket?.publish(json: ["op": "publish",
                                                      "topic": "/iphone/rgb/image_raw",
-                                                     "msg": ["height": height,
+                                                     "msg": ["header": ["stamp": ["sec": floorInt, "nanosec": nanosec], "frame_id": "iphone"],
+                                                             "height": height,
                                                              "width": width,
                                                              "encoding": "bgra8",
                                                              "is_bigendian": 0,
@@ -751,6 +788,13 @@ class FileManagerHelper {
 
 
                 //print(strBase64)
+            } catch let error as NSError {
+                fatalError("Error: \(error.localizedDescription)")
+            }
+        } else {
+            do {
+                try? data.write(to: fileURL)
+            
             } catch let error as NSError {
                 fatalError("Error: \(error.localizedDescription)")
             }

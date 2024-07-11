@@ -205,10 +205,12 @@ struct MainView: View {
                         
                         arProvider.scanState.toggle()
                         pointCloudProcessState = 0
+                        arProvider.useRos = self.useRos
+                        arProvider.fileManager?.useRos = self.useRos
                         
                         if arProvider.scanState {
                             arProvider.confSelection = selectedConfidence
-                            if(self.useRos) {
+                            if(self.useRos && (arProvider.websocket == nil || !arProvider.websocket!.connected)) {
                                 arProvider.websocket = WebSocket(url: self.rosIpAddress)
                             }
                             //arProvider.startTimer()

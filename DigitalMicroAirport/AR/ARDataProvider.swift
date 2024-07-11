@@ -102,6 +102,8 @@ final class ARProvider: ARDataReceiver, ObservableObject {
     
     var websocket: WebSocket?
     
+    let d1 = Date()
+    
     // Create an empty texture.
     static func createTexture(metalDevice: MTLDevice, width: Int, height: Int, usage: MTLTextureUsage, pixelFormat: MTLPixelFormat) -> MTLTexture {
         let descriptor: MTLTextureDescriptor = MTLTextureDescriptor()
@@ -389,6 +391,27 @@ final class ARProvider: ARDataReceiver, ObservableObject {
         camPos.translation = simd_float3(lastArData!.worldPose.columns.3.x, lastArData!.worldPose.columns.3.y, lastArData!.worldPose.columns.3.z)
         camPos.numberOfPoints = 0
         camPos.gpsLocation = self.arReceiver.locNow
+        
+        
+//        if(self.useRos && websocket!.connected) {
+//            print("Publish pose to ROS")
+//            let translation = lastArData!.worldPose.columns.3
+//            let quaternion = simd_quaternion(lastArData!.worldPose)
+//            let d2 = Date()
+//            let elapsed = Float(d2.timeIntervalSince(d1))
+//            let floorInt = floor(elapsed)
+//            //print(elapsed)
+//            let nanosec = Int((elapsed-floorInt)*1e+6)
+//            
+//            websocket?.publish(json: ["op": "publish",
+//                                     "topic": "/iphone/pose",
+//                                     "msg": ["header": ["stamp": ["sec": floorInt, "nanosec": nanosec], "frame_id": "iphone"],
+//                                             "pose": ["position": ["x": translation.x, "y": translation.y, "z": translation.z],
+//                                                      "orientation": ["x": quaternion.imag.x, "y": quaternion.imag.y, "z": quaternion.imag.z, "w": quaternion.real]]
+//                                            ]
+//                                    ])
+//
+//        }
         print(self.arReceiver.locNow)
         
         return camPos
@@ -572,7 +595,7 @@ final class ARProvider: ARDataReceiver, ObservableObject {
 
             
             
-            publishPointcloudData(depthWidth: tempPointCloud.count, rosPc: rosPc)
+            //publishPointcloudData(depthWidth: tempPointCloud.count, rosPc: rosPc)
             
             // Perform in another thread so that the arkit is not affected.
             queue.addOperation {

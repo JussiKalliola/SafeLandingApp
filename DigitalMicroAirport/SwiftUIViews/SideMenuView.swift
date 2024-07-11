@@ -35,7 +35,7 @@ struct SideMenuView: View {
     @Binding var useRos: Bool
     @Binding var rosIpAddress: String
     
-    @State var tempRosIpAddress: String = ""
+    @State var tempRosIpAddress: String = "ws://192.168.0.188:9090"
     
     var body: some View {
         ScrollView(.vertical) {
@@ -49,7 +49,7 @@ struct SideMenuView: View {
                     Text("/iphone/depth/image_raw").padding(.leading, 5).font(.system(size: 11))
                     Text("/iphone/confidence/image_raw").padding(.leading, 5).padding(.bottom, 3).font(.system(size: 11))
                     Text("[More info in github.](https://github.com/JussiKalliola/SafeLandingApp)").font(.footnote)
-                    Toggle("Enable ROS:", isOn: $useRos).disabled($rosIpAddress.wrappedValue != "")
+                    Toggle("Enable ROS:", isOn: $useRos)
                     
                     HStack {
                         TextField(

@@ -165,6 +165,7 @@ class WebSocket: NSObject, URLSessionWebSocketDelegate {
         self.advertise(json: ["op": "advertise", "topic": "/iphone/depth/image_raw", "type": "sensor_msgs/msg/Image"])
         self.advertise(json: ["op": "advertise", "topic": "/iphone/confidence/image_raw", "type": "sensor_msgs/msg/Image"])
         self.advertise(json: ["op": "advertise", "topic": "/iphone/pose", "type": "geometry_msgs/msg/PoseStamped"])
+        self.advertise(json: ["op": "advertise", "topic": "/iphone/target", "type": "geometry_msgs/msg/Point"])
         self.advertise(json: ["op": "advertise", "topic": "/iphone/lidar", "type": "sensor_msgs/msg/PointCloud2"])
     }
     

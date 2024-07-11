@@ -195,23 +195,23 @@ final class ARReceiver: NSObject, ARSessionDelegate, ARSCNViewDelegate, CLLocati
             
         
         // Publish data to rosbridge
-//        if arProvider.websocket != nil{
-//            let translation = frame.camera.transform.columns.3
-//            let quaternion = simd_quaternion(frame.camera.transform)
-//            let d2 = Date()
-//            let elapsed = Float(d2.timeIntervalSince(d1))
-//            let floorInt = floor(elapsed)
-//            //print(elapsed)
-//            let nanosec = Int((elapsed-floorInt)*1e+6)
-//
-//            arProvider.websocket?.publish(json: ["op": "publish",
-//                                                 "topic": "/iphone/pose",
-//                                                 "msg": ["header": ["stamp": ["sec": floorInt, "nanosec": nanosec], "frame_id": "iphone"],
-//                                                         "pose": ["position": ["x": translation.x, "y": translation.y, "z": translation.z],
-//                                                                  "orientation": ["x": quaternion.imag.x, "y": quaternion.imag.y, "z": quaternion.imag.z, "w": quaternion.real]]
-//                                                        ]
-//                                                ])
-//        }
+        if arProvider.useRos && arProvider.websocket != nil && frameId%5==0 {
+            let translation = frame.camera.transform.columns.3
+            let quaternion = simd_quaternion(frame.camera.transform)
+            let d2 = Date()
+            let elapsed = Float(d2.timeIntervalSince(arProvider.d1))
+            let floorInt = floor(elapsed)
+            //print(elapsed)
+            let nanosec = Int((elapsed-floorInt)*1e+6)
+
+            arProvider.websocket?.publish(json: ["op": "publish",
+                                                 "topic": "/iphone/pose",
+                                                 "msg": ["header": ["stamp": ["sec": floorInt, "nanosec": nanosec], "frame_id": "iphone"],
+                                                         "pose": ["position": ["x": translation.x, "y": translation.y, "z": translation.z],
+                                                                  "orientation": ["x": quaternion.imag.x, "y": quaternion.imag.y, "z": quaternion.imag.z, "w": quaternion.real]]
+                                                        ]
+                                                ])
+        }
         
         
         //print(df!.string(from: Date(timeInterval: frame.timestamp, since: self.now!)))
